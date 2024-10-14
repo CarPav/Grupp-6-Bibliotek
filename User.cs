@@ -8,9 +8,6 @@ namespace GASSIGN_Bibliotekapp
 {
     public class User
     {
-        //Kopplar ihop User med UserInterface så vi kan kalla på metoder i Interface från våran User.
-        public UserInterface UserInterface { get; set; } = new UserInterface();
-
         public void AddBook()
         {
             //Caroline lägger till sin kod här

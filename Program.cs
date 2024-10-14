@@ -5,10 +5,10 @@
         static void Main(string[] args)
         {
             //Deklarerar objekt av klasser
-            User user = new User();
+            UserInterface userInterface = new UserInterface();
 
             //Kallar på metoden att köra igång Startmenyn
-            user.UserInterface.PrintStartMenu(user);
+            userInterface.PrintStartMenu();
         }
     }
 }
