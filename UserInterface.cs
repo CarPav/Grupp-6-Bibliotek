@@ -8,6 +8,13 @@ namespace GASSIGN_Bibliotekapp
 {
     public class UserInterface
     {
+        public User User { get; set; }
+
+        public UserInterface(User user)
+        {
+            User = user;
+        }
+
         public List<Book> books = new List<Book>()
             {
                 //                  Title                            Author      Isbn  isCheckedOut

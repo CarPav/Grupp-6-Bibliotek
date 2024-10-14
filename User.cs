@@ -9,7 +9,7 @@ namespace GASSIGN_Bibliotekapp
     public class User
     {
         //Kopplar ihop User med UserInterface så vi kan kalla på metoder i Interface från våran User.
-        public UserInterface UserInterface { get; set; } = new UserInterface();
+        public UserInterface UserInterface { get; set; }
 
         public void AddBook()
         {
@@ -21,7 +21,7 @@ namespace GASSIGN_Bibliotekapp
             //Felicia lägger till sin kod här
         }
 
-        public static void SearchBookByAuthor(List<Book> books, string author)
+        public void SearchBookByAuthor(List<Book> books, string author)
         {
             //Gör en lista av alla böcker som har samma författare som användare angav
             var foundBooks = books.Where(b => b.Author.ToUpper() == author.ToUpper()).ToList();
