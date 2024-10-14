@@ -8,7 +8,14 @@ namespace GASSIGN_Bibliotekapp
 {
     public class UserInterface
     {
-        public static void PrintStartMenu()
+        public List<Book> books = new List<Book>()
+            {
+                //                  Title                            Author      Isbn  isCheckedOut
+                new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 123, false),
+                new Book("The Hobbit", "J.R.R. Tolkien", 456, false),
+                new Book("1984", "George Orwell", 789, false)
+            };
+        public void PrintStartMenu()
         {
             Console.WriteLine("--- Bibliotekhanteringssytem ---");
             while (true)
@@ -31,7 +38,10 @@ namespace GASSIGN_Bibliotekapp
                         //RemoveBookByTitle();
                         break;
                     case "3":
-                        //SearchBookByAuthor();
+                        Console.Write("Ange författarens namn du vill söka efter: ");
+                        string userAuthor = Console.ReadLine()!;
+
+                        User.SearchBookByAuthor(books, userAuthor);
                         break;
                     case "4":
                         //ShowAllBooks();

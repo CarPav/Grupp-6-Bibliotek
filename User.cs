@@ -8,7 +8,9 @@ namespace GASSIGN_Bibliotekapp
 {
     public class User
     {
-        //Som standard har jag gjort alla metoder likadana. Märker ni att eran metod kanske ska ta emot parametrar eller liknande så ändrar ni ju bara på det såklart!
+        //Kopplar ihop User med UserInterface så vi kan kalla på metoder i Interface från våran User.
+        public UserInterface UserInterface { get; set; } = new UserInterface();
+
         public void AddBook()
         {
             //Caroline lägger till sin kod här
@@ -19,9 +21,24 @@ namespace GASSIGN_Bibliotekapp
             //Felicia lägger till sin kod här
         }
 
-        public void SearchBookByAuthor()
+        public static void SearchBookByAuthor(List<Book> books, string author)
         {
-            //David lägger till sin kod här
+            //Gör en lista av alla böcker som har samma författare som användare angav
+            var foundBooks = books.Where(b => b.Author.ToUpper() == author.ToUpper()).ToList();
+
+            //Om värdet är 0 så skriver den ut felmeddelande
+            if (foundBooks.Count == 0)
+            {
+                Console.WriteLine($"Inga böcker av författaren {author} hittades.");
+            }
+            else // Annars så skriver den ut varje bok som författaren har
+            {
+                Console.WriteLine($"Våra böcker av {author}:");
+                foreach (var book in foundBooks)
+                {
+                    Console.WriteLine($"- {book.Title}");
+                }
+            }
         }
 
         public void ShowAllBooks()
