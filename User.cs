@@ -19,7 +19,7 @@ namespace GASSIGN_Bibliotekapp
         public void RemoveBookByTitle(List<Book> books, string title)
         {
             //Sök igenom listan för att matcha titeln som användaren valt
-            var bookToRemove = books.FirstOrDefault(book => book.Title == title);
+            var bookToRemove = books.FirstOrDefault(book => book.Title.ToUpper() == title.ToUpper());
 
             if (bookToRemove != null) //Om boken hittas ta bort den från listan
             {
