@@ -6,10 +6,9 @@
         {
             //Deklarerar objekt av klasser
             User user = new User();
-            UserInterface ui = new UserInterface(user);
 
             //Kallar på metoden att köra igång Startmenyn
-            ui.PrintStartMenu();
+            user.UserInterface.PrintStartMenu(user);
         }
     }
 }
