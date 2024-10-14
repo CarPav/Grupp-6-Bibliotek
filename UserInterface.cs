@@ -35,7 +35,14 @@ namespace GASSIGN_Bibliotekapp
                         //AddBook();
                         break;
                     case "2":
-                        //RemoveBookByTitle();
+                        foreach(Book book in books)
+                        {
+                            Console.WriteLine($"Titel: {book.Title} Författare: {book.Author}");
+                        }
+                        Console.WriteLine("Skriv in titeln på boken du vill ta bort");
+                        string titleToRemove = Console.ReadLine()!;
+
+                        user.RemoveBookByTitle(books, titleToRemove);
                         break;
                     case "3":
                         Console.Write("Ange författarens namn du vill söka efter: ");

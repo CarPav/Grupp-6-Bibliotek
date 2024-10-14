@@ -16,9 +16,21 @@ namespace GASSIGN_Bibliotekapp
             //Caroline lägger till sin kod här
         }
 
-        public void RemoveBookByTitle()
+        public void RemoveBookByTitle(List<Book> books, string title)
         {
-            //Felicia lägger till sin kod här
+            //Sök igenom listan för att matcha titeln som användaren valt
+            var bookToRemove = books.FirstOrDefault(book => book.Title == title);
+
+            if (bookToRemove != null) //Om boken hittas ta bort den från listan
+            {
+                books.Remove(bookToRemove);
+                Console.WriteLine($"Boken {bookToRemove.Title} har tagits bort från listan.");
+            }
+            else //Om boken inte hittas skrivs ett felmeddelande ut
+            {
+                Console.WriteLine($"Ingen bok med titeln {title} hittades.");
+            }
+
         }
 
         public void SearchBookByAuthor(List<Book> books, string author)
