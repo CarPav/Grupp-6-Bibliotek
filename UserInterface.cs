@@ -15,7 +15,9 @@ namespace GASSIGN_Bibliotekapp
                 new Book("The Hobbit", "J.R.R. Tolkien", 456, false),
                 new Book("1984", "George Orwell", 789, false)
             };
-        public void PrintStartMenu(User user)
+
+        public User User { get; set; } = new User();
+        public void PrintStartMenu()
         {
             Console.WriteLine("--- Bibliotekhanteringssytem ---");
             while (true)
@@ -35,13 +37,20 @@ namespace GASSIGN_Bibliotekapp
                         //AddBook();
                         break;
                     case "2":
-                        //RemoveBookByTitle();
+                        foreach(Book book in books)
+                        {
+                            Console.WriteLine($"Titel: {book.Title} Författare: {book.Author}");
+                        }
+                        Console.WriteLine("Skriv in titeln på boken du vill ta bort");
+                        string titleToRemove = Console.ReadLine()!;
+
+                        User.RemoveBookByTitle(books, titleToRemove);
                         break;
                     case "3":
                         Console.Write("Ange författarens namn du vill söka efter: ");
                         string userAuthor = Console.ReadLine()!;
 
-                        user.SearchBookByAuthor(books, userAuthor);
+                        User.SearchBookByAuthor(books, userAuthor);
                         break;
                     case "4":
                         //ShowAllBooks();
