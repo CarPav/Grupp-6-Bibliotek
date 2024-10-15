@@ -4,8 +4,11 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hejsan Grupp 6");
+            //Deklarerar objekt av klasser
+            User user = new User();
 
+            //Kallar på metoden att köra igång Startmenyn
+            user.UserInterface.PrintStartMenu(user);
         }
     }
 }
