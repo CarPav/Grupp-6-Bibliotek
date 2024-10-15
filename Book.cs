@@ -23,6 +23,10 @@ namespace GASSIGN_Bibliotekapp
             IsCheckedOut = isCheckedOut;
         }
 
+        public Book()
+        {
+        }
+
         //En string som skrivs om för varje bok, så printar man detta så skriver den ut rätt Författare och Titel.
         public override string ToString()
         {
