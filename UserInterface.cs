@@ -34,7 +34,27 @@ namespace GASSIGN_Bibliotekapp
                 switch (userOption)
                 {
                     case "1":
-                        //AddBook();
+                        
+                        Console.Write("Bokens titel: ");
+                        Book bookToAdd = new Book();
+                        bookToAdd.Title = Console.ReadLine()!;
+
+                        Console.Write("Bokens författare: ");
+                        bookToAdd.Author = Console.ReadLine()!;
+
+                        Console.Write("Bokens ISBN-nummer: ");
+                        bookToAdd.Isbn = Convert.ToInt32(Console.ReadLine()!);
+
+                        books.Add(bookToAdd);
+
+                        Console.WriteLine($"Din bok med titeln {bookToAdd.Title} har lagts till i listan.");
+
+                       // La till denna bara för att kunna se om boken kom med i listan
+                        foreach (Book book in books)
+                        {
+                            Console.WriteLine(book.Title);
+                        }
+
                         break;
                     case "2":
                         foreach(Book book in books)

@@ -8,9 +8,11 @@ namespace GASSIGN_Bibliotekapp
 {
     public class User
     {
-        public void AddBook()
+        public void AddBook(List<Book> books, string title, string author, int isbn)
         {
-            //Caroline lägger till sin kod här
+
+
+
         }
 
         public void RemoveBookByTitle(List<Book> books, string title)
