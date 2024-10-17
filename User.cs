@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace GASSIGN_Bibliotekapp
 {
@@ -57,9 +58,61 @@ namespace GASSIGN_Bibliotekapp
             //Andreas lägger till sin kod här
         }
 
-        public void CheckoutAndReturnBook()
+        public void CheckoutAndReturnBook(List<Book> books)
         {
-            //Ayub lägger till sin kod här
+            // Visa alla böcker och deras utlåningsstatus
+            Console.WriteLine("Tillgängliga böcker:");
+            foreach (Book book in books)
+            {
+                Console.WriteLine($"{book.Title} - Utlånad: {book.IsCheckedOut}");
+            }
+
+            // Be användaren att skriva in titeln på boken de vill checka ut eller returnera
+            Console.WriteLine("Skriv in titeln på boken du vill checka ut eller returnera:");
+            string title = Console.ReadLine();
+
+            // Hitta boken användaren angav
+            Book selectedBook = books.FirstOrDefault(b => b.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+
+            if (selectedBook == null)
+            {
+                Console.WriteLine("Boken hittades inte.");
+                return;
+            }
+
+            // Fråga om användaren vill checka ut eller returnera boken
+            Console.WriteLine("Vill du 'checka ut' eller 'returnera' boken?");
+            string action = Console.ReadLine().ToLower();
+
+            // Enkel hantering av att checka ut eller returnera boken
+            if (action == "checka ut")
+            {
+                if (selectedBook.IsCheckedOut)
+                {
+                    Console.WriteLine("Boken är redan utlånad.");
+                }
+                else
+                {
+                    selectedBook.IsCheckedOut = true;
+                    Console.WriteLine($"Du har nu checkat ut boken: {selectedBook.Title}");
+                }
+            }
+            else if (action == "returnera")
+            {
+                if (!selectedBook.IsCheckedOut)
+                {
+                    Console.WriteLine("Boken är inte utlånad.");
+                }
+                else
+                {
+                    selectedBook.IsCheckedOut = false;
+                    Console.WriteLine($"Du har nu returnerat boken: {selectedBook.Title}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ogiltigt val, försök igen.");
+            }
         }
     }
 }
