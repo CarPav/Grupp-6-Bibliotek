@@ -39,10 +39,7 @@ namespace GASSIGN_Bibliotekapp
 
                         break;
                     case "2":
-                        foreach(Book book in books)
-                        {
-                            Console.WriteLine($"Titel: {book.Title} Författare: {book.Author}");
-                        }
+                        User.ShowAllBooks(books);
                         Console.WriteLine("Skriv in titeln på boken du vill ta bort");
                         string titleToRemove = Console.ReadLine()!;
 
