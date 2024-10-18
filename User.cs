@@ -22,9 +22,21 @@ namespace GASSIGN_Bibliotekapp
             int addIsbn = Convert.ToInt32(Console.ReadLine()!);
 
             Book bookToAdd = new Book(addTitle, addAuthor, addIsbn, false);
-            books.Add(bookToAdd);
+            bool isbnAlreadyExcist = books.Any(book => book.Isbn == bookToAdd.Isbn);
+            
+            if (isbnAlreadyExcist)
+            {
 
-            Console.WriteLine($"Din bok med titeln {bookToAdd.Title} har lagts till i listan.");
+                Console.WriteLine($"Denna boken finns redan i listan.");
+            }
+            else
+            {
+                books.Add(bookToAdd);
+
+                Console.WriteLine($"Din bok med titeln {bookToAdd.Title} har lagts till i listan.");
+            }
+
+
 
         }
 
