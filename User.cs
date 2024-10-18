@@ -9,10 +9,22 @@ namespace GASSIGN_Bibliotekapp
 {
     public class User
     {
-        public void AddBook(List<Book> books, string title, string author, int isbn)
+        public void AddBook(List<Book> books)
         {
+            Console.Write("Bokens titel: ");
 
+            string addTitle = Console.ReadLine()!;
 
+            Console.Write("Bokens författare: ");
+            string addAuthor = Console.ReadLine()!;
+
+            Console.Write("Bokens ISBN-nummer: ");
+            int addIsbn = Convert.ToInt32(Console.ReadLine()!);
+
+            Book bookToAdd = new Book(addTitle, addAuthor, addIsbn, false);
+            books.Add(bookToAdd);
+
+            Console.WriteLine($"Din bok med titeln {bookToAdd.Title} har lagts till i listan.");
 
         }
 
@@ -53,9 +65,12 @@ namespace GASSIGN_Bibliotekapp
             }
         }
 
-        public void ShowAllBooks()
+        public void ShowAllBooks(List<Book> books)
         {
-            //Andreas lägger till sin kod här
+            foreach (Book book in books)
+            {
+                Console.WriteLine(book.ToString());
+            }
         }
 
         public void CheckoutAndReturnBook(List<Book> books)
@@ -114,5 +129,6 @@ namespace GASSIGN_Bibliotekapp
                 Console.WriteLine("Ogiltigt val, försök igen.");
             }
         }
+
     }
 }

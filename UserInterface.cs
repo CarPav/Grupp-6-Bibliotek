@@ -34,26 +34,8 @@ namespace GASSIGN_Bibliotekapp
                 switch (userOption)
                 {
                     case "1":
-                        
-                        Console.Write("Bokens titel: ");
-                        Book bookToAdd = new Book();
-                        bookToAdd.Title = Console.ReadLine()!;
 
-                        Console.Write("Bokens författare: ");
-                        bookToAdd.Author = Console.ReadLine()!;
-
-                        Console.Write("Bokens ISBN-nummer: ");
-                        bookToAdd.Isbn = Convert.ToInt32(Console.ReadLine()!);
-
-                        books.Add(bookToAdd);
-
-                        Console.WriteLine($"Din bok med titeln {bookToAdd.Title} har lagts till i listan.");
-
-                       // La till denna bara för att kunna se om boken kom med i listan
-                        foreach (Book book in books)
-                        {
-                            Console.WriteLine(book.Title);
-                        }
+                        User.AddBook(books);
 
                         break;
                     case "2":
@@ -73,7 +55,7 @@ namespace GASSIGN_Bibliotekapp
                         User.SearchBookByAuthor(books, userAuthor);
                         break;
                     case "4":
-                        //ShowAllBooks();
+                        User.ShowAllBooks(books);
                         break;
                     case "5": 
                        User.CheckoutAndReturnBook(books);
