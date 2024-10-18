@@ -69,7 +69,7 @@ namespace GASSIGN_Bibliotekapp
         {
             foreach (Book book in books)
             {
-                Console.WriteLine(book.Title);
+                Console.WriteLine(book.ToString());
             }
         }
 
