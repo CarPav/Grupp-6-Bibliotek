@@ -75,8 +75,8 @@ namespace GASSIGN_Bibliotekapp
                     case "4":
                         //ShowAllBooks();
                         break;
-                    case "5":
-                        //CheckoutAndReturnBook();
+                    case "5": 
+                       User.CheckoutAndReturnBook(books);
                         break;
                     case "6":
                         Console.WriteLine("Tack för du använde Bibliotekhanteringssytemet");
